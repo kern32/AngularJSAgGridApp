@@ -1,0 +1,19 @@
+<h2>{{title}}</h2>
+<p>
+<button (click)="updateRows()">Update Selected Rows</button>
+<p>
+<ag-grid-angular
+	#agGrid
+	style="width: 100%; height: 300px;" 
+    class="ag-theme-blue"
+	[autoGroupColumnDef]="autoGroupColumnDef"
+    [rowData]="rowData | async" 
+    [columnDefs]="columnDefs"
+	rowSelection="multiple"
+	[pagination]="true"
+	[paginationPageSize]=5
+	(gridReady)="onGridReady($event)"
+    >
+</ag-grid-angular>
+
+<button (click)="onAddRow()">Add Row</button> &nbsp; <button (click)="onRemoveSelected()">Remove Selected</button>
